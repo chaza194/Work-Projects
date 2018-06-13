@@ -1,0 +1,23 @@
+﻿<Window x:Class="RatesMultiThread.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RatesMultiThread"
+        xmlns:CustomControls="clr-namespace:RatesMultiThread.Resources.UserControls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="775.581" Width="800" Background="#4C6E6B6B" AllowsTransparency="True" WindowStyle="None" Loaded="MainWindow_Loaded" WindowStartupLocation="CenterScreen" SourceInitialized="Window_SourceInitialized">
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility ="Hidden" CanContentScroll="True">
+            <StackPanel CanHorizontallyScroll="False" Name="MainStack">
+                <CustomControls:RateUserControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Width="Auto"/>
+                <Button Name ="btnAddNewWS" Height="175" Background="#19DDDDDD" Foreground="White" BorderBrush="{x:Null}" FontSize="72" FontWeight="Bold" Click="btnAddNewWS_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto">
+                    <Image Source = "Resources/Images/plus.png" Width="50"></Image>
+                </Button>
+            </StackPanel>
+        </ScrollViewer>
+        <Button Name="btnClose" HorizontalAlignment="Right" VerticalAlignment="Top" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Click="btnClose_Click">
+            <Image Source="Resources/Images/cancel.png"/>
+        </Button>
+    </Grid>
+</Window>

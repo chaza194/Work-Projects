@@ -1,0 +1,23 @@
+﻿<Window x:Class="DataMapper.AddNewSQLNodeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataMapper"
+        mc:Ignorable="d"
+        Title="SQL Node Editor" Height="400" Width="400">
+    <Grid>
+        <Grid Height="115" VerticalAlignment="Top">
+            <Label Content="Short Name :" Height="34" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83"/>
+            <TextBox Margin="88,0,0,0" Text="{Binding HeaderName, Mode=TwoWay}" Height="34" VerticalAlignment="Top"></TextBox>
+            <Label Content="Fields To Bind :" Margin="0,34,0,0" Height="37" VerticalAlignment="Top" HorizontalAlignment="Left" Width="88"></Label>
+            <TextBox Margin="88,34,0,0" Text="{Binding KeyFields, Mode=TwoWay}" Height="37" VerticalAlignment="Top"></TextBox>
+            <Label Content="Schema SQL :" Margin="0,71,0,-35" Height="37" VerticalAlignment="Top" HorizontalAlignment="Left" Width="88"></Label>
+            <TextBox Margin="88,71,0,-35" Text="{Binding SchemaSQL, Mode=TwoWay}" Height="37" VerticalAlignment="Top"></TextBox>
+        </Grid>
+        <Grid Margin="0,120,0,0">
+            <Label Content="SQL Proc / Query : (Param = {0})" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
+            <TextBox AcceptsReturn="True" TextWrapping="Wrap" Margin="0,26,0,0" Text="{Binding SQLText, Mode=TwoWay}" />
+        </Grid>
+    </Grid>
+</Window>

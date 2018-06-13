@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="RatesMultiThread.Resources.UserControls.RateSetupUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RatesMultiThread.Resources.UserControls"
+             mc:Ignorable="d" d:DesignWidth="800" Name="MainControl" Height="175">
+    <Grid Name ="test" Background="White">
+        <Button Name="btnSave" HorizontalAlignment="Center" VerticalAlignment ="Bottom" Height="25" Width="100" Margin="-105,0,0,15">
+            <Image Source="../Images/success.png"></Image>
+        </Button>
+        <Button Visibility="Hidden" Content ="Cancel" Name="btnCancel" HorizontalAlignment="Left" VerticalAlignment ="Bottom" Height="25" Width="100" Margin="-150,0,0,15"></Button>
+        <Button Name="btnRemove" HorizontalAlignment="Center" VerticalAlignment ="Bottom" Height="25" Width="100" Click="btnRemove_Click" Margin="105,0,0,15">
+            <Image Source="../Images/garbage.png"></Image>
+        </Button>
+        <Grid Margin="0,10,0,40">
+            <Label VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="25" Content="Type : "></Label>
+            <ComboBox Name ="cboWSType" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="25" Margin="105,0,0,0" ItemsSource="{Binding WSTypes}" SelectedItem="{Binding RateType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="cboWSType_SelectionChanged"></ComboBox>
+            <Grid x:Name="grpExchange" Margin="0,30,0,0" Height="57" VerticalAlignment="Top" HorizontalAlignment="Left" Width="205">
+                <Label VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="25" Content="Currency From :"/>
+                <TextBox Name="txtCurrencyFrom" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="25" Margin="105,0,0,0" Text="{Binding CurrencyFrom}"></TextBox>
+                <Label VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="25" Margin="0,30,0,0" Content="Currency To :"></Label>
+                <TextBox  Name="txtCurrencyTo" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="25" Margin="105,30,0,0"  Text="{Binding CurrencyTo}"/>
+            </Grid>
+            <Grid x:Name="grpStock" Visibility="Hidden" Margin="0,30,0,0" Height="57" VerticalAlignment="Top" HorizontalAlignment="Left" Width="205">
+                <Label  VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="25" Content="Symbol :"/>
+                <TextBox Name="txtSymbol" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="25" Margin="105,0,0,0"  Text="{Binding Symbol}"></TextBox>
+            </Grid>
+            <Label VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="25" Content="Refresh TImes : " Margin="0,90,0,0"></Label>
+            <ComboBox  ItemsSource="{Binding RefreshTimes}" DisplayMemberPath="Key" SelectedValue="{Binding SelectedRefreshTime}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="25" Margin="105,90,0,0"></ComboBox>
+        </Grid>
+    </Grid>
+</UserControl>

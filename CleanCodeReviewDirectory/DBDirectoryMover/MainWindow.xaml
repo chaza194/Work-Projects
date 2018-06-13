@@ -1,0 +1,32 @@
+﻿<Window x:Class="CleanCodeReviewDirectory.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CleanCodeReviewDirectory"
+        mc:Ignorable="d"
+        Title="DB Directory Copier" Height="329.414" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <TextBox x:Name="txtDirFrom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="641" Margin="128,44,0,0" />
+        <Label x:Name="lblCopyFrom" Content="Directory Copy From:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,44,0,0"/>
+        <TextBox x:Name="txtDirTo" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="641" Margin="128,72,0,0" />
+        <Label x:Name="lblCopyTo" Content="Directory Copy To:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16,72,0,0"/>
+        <Button x:Name="btnGo" HorizontalAlignment="Center" Width="224" Margin="286,0,282,10" Content="Go" Click="btnGo_Click" Height="20" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="txtConStr" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="641" Margin="128,16,0,0" />
+        <Label x:Name="lblConStr" Content="Connection String:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,16,0,0"/>
+        <ProgressBar x:Name="ProgBar" HorizontalAlignment="Left" Width="772" Margin="10,0,0,35" Height="23" VerticalAlignment="Bottom"/>
+        <GroupBox x:Name="gbSQL" Header="SQL&#xD;&#xA;" HorizontalAlignment="Left" Height="98" VerticalAlignment="Top" Width="759" Margin="10,103,0,0">
+            <Grid>
+                <Label x:Name="lblSelect" Content="SELECT" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Margin="10,0,0,0"/>
+                <TextBox x:Name="txtSelect" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="58,0,0,0"/>
+                <Label x:Name="lblFrom" Content="FROM" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Margin="178,0,0,0" RenderTransformOrigin="0.116,0.652"/>
+                <TextBox x:Name="txtFrom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="221,0,0,0" RenderTransformOrigin="0.475,0.652" />
+                <Label x:Name="lblWhere" Content="WHERE" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Margin="341,0,0,0" RenderTransformOrigin="0.116,0.652"/>
+                <TextBox x:Name="txtWhere" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="347" Margin="390,0,0,0" RenderTransformOrigin="0.475,0.652" />
+                <Label x:Name="lblKeyField" Content="Key Field:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,28,0,0"/>
+                <TextBox x:Name="txtKeyField" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" Margin="70,32,0,0"/>
+            </Grid>
+        </GroupBox>
+        <Label x:Name="lblErrorMessage" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,206,0,0" Foreground="Red"/>
+    </Grid>
+</Window>
