@@ -48,5 +48,10 @@ Serialization is all dynamic, everything is built from data returned from select
 - Export JSON (only can be seen in debugging) 
 - Remove view models to own .cs files  
 - Make UI pretty. 
- 
+
+## DBDirectoryMover -   
+This is a quick tool that I wrote. It will move files from a given directory based on SQL provided. I dont see this being usfull to anyone else but at my current place of work. 
+
+### Features 
+- Will move files based on provided SQL to new directory.
  
