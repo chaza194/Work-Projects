@@ -27,6 +27,9 @@ Serialization is all dynamic, everything is built from data returned from select
 ## DBDirectoryMover -   
 This is a quick tool that I wrote. It will move files from a given directory based on SQL provided. I dont see this being useful to anyone else but at my current place of work. 
 
+## WebDemo -   
+Simple Student Dashboard to demo the I understand MVC
+
 ## JsonInjector *Most Recent*-   
 This project was to understand "SimpleInjector". It will read from multiple files from multiple threads and will processes the data from a Queue.	
  
