@@ -1,0 +1,23 @@
+﻿<Window x:Class="JsonInjector.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JsonInjector"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid Name="grdTop" VerticalAlignment="Top" Height="214">
+            <GroupBox Name="gbxDirectoryList" Header="JSON Files" Margin="0,0,0,40">
+                <StackPanel Name="stkJsonFiles"></StackPanel>
+            </GroupBox>
+            <Button Name="btnAddNewFile" Height="20" VerticalAlignment="Bottom" Content="Add New" Click="btnAddNewFile_Click" Margin="0,0,0,20"></Button>
+            <Button Name="btnProcessJson" Height="20" VerticalAlignment="Bottom" Content="Process" Click="btnProcessJson_Click"/>
+        </Grid>
+        <Grid Name="grdBottom" Margin="0,214,0,0">
+            <GroupBox Name="gbxLog" Header="Log">
+                <TextBox AcceptsReturn="True" TextWrapping="Wrap" Name="txtLog" Text="{Binding LogText, NotifyOnSourceUpdated=True}"/>
+            </GroupBox>
+        </Grid>
+    </Grid>
+</Window>
