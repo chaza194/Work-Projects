@@ -12,6 +12,7 @@
 
 This tool is used to export data from a SQL data into JSON based on user mappings. For Example : 
 
+'''
 --Base Query 
   --FieldA (returned form parent SQL)   
   --FieldB 
