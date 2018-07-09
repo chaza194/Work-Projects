@@ -1,0 +1,65 @@
+﻿@model WebDemo.Models.StudentModel
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+	@Scripts.Render("~/bundles/modernizr")
+
+	@Scripts.Render("~/bundles/angular")
+	@Scripts.Render("~/Controllers/ClientSideControllers/Logincontroller.js")
+	<link href="~/Content/LoginForm.css" rel="stylesheet" />
+
+</head>
+
+<body>
+	@using (Html.BeginForm("Login", "StudentDashBoard", FormMethod.Post, new { ng_controller = "Logincontroller", ng_form = "LoginForm"}))
+	{
+		@Html.AntiForgeryToken()
+		@Html.ValidationSummary(true)
+
+		<div class="tile">
+			<div class="tile-header">
+				</div>
+
+			<div class="tile-body">
+				<form id="form">
+					<label class="form-input">
+						<i class="material-icons">person</i>
+						@Html.TextBoxFor(x => x.StudentInfo.UserName, new { required = "required", ng_model = "Username", type = "text" })
+						<span class="label">Username</span>
+						<span class="underline"></span>
+					</label>
+
+					<label class="form-input">
+						<i class="material-icons">lock</i>
+						@Html.TextBoxFor(x => x.StudentInfo.Password, new { required = "required", ng_model = "Password", wj_validation_error = "Password field is required.", type = "password"})
+						<span class="label">Password</span>
+						<div class="underline"></div>
+					</label>
+
+					<div class="submit-container clearfix" style="margin-top: 2rem;">
+						<div id="submit" role="button" type="button" class="btn btn-irenic float-right" tabindex="0">
+							<input ng-disabled="!LoginForm.$valid" type="submit" value="login" class="submit" />
+						</div>
+
+						<div class="login-pending">
+							<div class=spinner>
+								<span class="dot1"></span>
+								<span class="dot2"></span>
+							</div>
+
+							<div class="login-granted-content">
+								<i class="material-icons">done</i>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	}
+</body>
+</html>

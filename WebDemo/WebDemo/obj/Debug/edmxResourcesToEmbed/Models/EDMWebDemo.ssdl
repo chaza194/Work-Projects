@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="leonardc_WebDemoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblCourses">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="int" Nullable="false" />
+    <Property Name="CourseName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tblCourseWork">
+    <Key>
+      <PropertyRef Name="CourseWorkID" />
+    </Key>
+    <Property Name="CourseWorkID" Type="int" Nullable="false" />
+    <Property Name="ModuleID" Type="int" />
+    <Property Name="Title" Type="varchar" MaxLength="100" />
+    <Property Name="HandInDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'leonardc_WebDemo.dbo.tblGrades' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tblGrades">
+          <Property Name="StudentID" Type="int" />
+          <Property Name="ModuleID" Type="int" />
+          <Property Name="Grade" Type="float" />
+          <Property Name="DateAchieved" Type="datetime" />
+          <Property Name="CourseWorkID" Type="int" />
+        </EntityType>-->
+  <EntityType Name="tblModules">
+    <Key>
+      <PropertyRef Name="ModuleID" />
+    </Key>
+    <Property Name="ModuleID" Type="int" Nullable="false" />
+    <Property Name="CourseID" Type="varchar" MaxLength="100" />
+    <Property Name="ModuleName" Type="varchar" MaxLength="100" />
+    <Property Name="ModulePassGrade" Type="float" />
+    <Property Name="ModuleMeritGrade" Type="float" />
+    <Property Name="ModuleDistinctionGrade" Type="float" />
+    <Property Name="ModuleShortName" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tblStudents">
+    <Key>
+      <PropertyRef Name="RowGuid" />
+    </Key>
+    <Property Name="ID" Type="int" />
+    <Property Name="UserName" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
+    <Property Name="Gender" Type="varchar" MaxLength="1" />
+    <Property Name="FirstName" Type="varchar" MaxLength="100" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" />
+    <Property Name="EnrollmentDate" Type="datetime" />
+    <Property Name="RowGuid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CourseID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'leonardc_WebDemo.dbo.qryLatestStudentGrades' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="qryLatestStudentGrades">
+    <Key>
+      <PropertyRef Name="CourseWorkID" />
+      <PropertyRef Name="Mark" />
+    </Key>
+    <Property Name="Row" Type="bigint" />
+    <Property Name="Rank" Type="bigint" />
+    <Property Name="StudentID" Type="int" />
+    <Property Name="ModuleID" Type="int" />
+    <Property Name="Grade" Type="float" />
+    <Property Name="DateAchieved" Type="datetime" />
+    <Property Name="CourseWorkID" Type="int" Nullable="false" />
+    <Property Name="ModuleName" Type="varchar" MaxLength="100" />
+    <Property Name="ModuleShortName" Type="varchar" MaxLength="10" />
+    <Property Name="CourseWorkTitle" Type="varchar" MaxLength="100" />
+    <Property Name="Mark" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'leonardc_WebDemo.dbo.qryStudentGrades' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="qryStudentGrades">
+    <Key>
+      <PropertyRef Name="Mark" />
+    </Key>
+    <Property Name="Row" Type="bigint" />
+    <Property Name="StudentID" Type="int" />
+    <Property Name="ModuleID" Type="int" />
+    <Property Name="Grade" Type="float" />
+    <Property Name="DateAchieved" Type="datetime" />
+    <Property Name="CourseWorkID" Type="int" Nullable="false" />
+    <Property Name="ModuleName" Type="varchar" MaxLength="100" />
+    <Property Name="ModuleShortName" Type="varchar" MaxLength="10" />
+    <Property Name="CourseWorkTitle" Type="varchar" MaxLength="100" />
+    <Property Name="Mark" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="leonardc_WebDemoModelStoreContainer">
+    <EntitySet Name="tblCourses" EntityType="Self.tblCourses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCourseWork" EntityType="Self.tblCourseWork" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblModules" EntityType="Self.tblModules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStudents" EntityType="Self.tblStudents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="qryLatestStudentGrades" EntityType="Self.qryLatestStudentGrades" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [qryLatestStudentGrades].[Row] AS [Row], 
+    [qryLatestStudentGrades].[Rank] AS [Rank], 
+    [qryLatestStudentGrades].[StudentID] AS [StudentID], 
+    [qryLatestStudentGrades].[ModuleID] AS [ModuleID], 
+    [qryLatestStudentGrades].[Grade] AS [Grade], 
+    [qryLatestStudentGrades].[DateAchieved] AS [DateAchieved], 
+    [qryLatestStudentGrades].[CourseWorkID] AS [CourseWorkID], 
+    [qryLatestStudentGrades].[ModuleName] AS [ModuleName], 
+    [qryLatestStudentGrades].[ModuleShortName] AS [ModuleShortName], 
+    [qryLatestStudentGrades].[CourseWorkTitle] AS [CourseWorkTitle], 
+    [qryLatestStudentGrades].[Mark] AS [Mark]
+    FROM [dbo].[qryLatestStudentGrades] AS [qryLatestStudentGrades]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="qryStudentGrades" EntityType="Self.qryStudentGrades" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [qryStudentGrades].[Row] AS [Row], 
+    [qryStudentGrades].[StudentID] AS [StudentID], 
+    [qryStudentGrades].[ModuleID] AS [ModuleID], 
+    [qryStudentGrades].[Grade] AS [Grade], 
+    [qryStudentGrades].[DateAchieved] AS [DateAchieved], 
+    [qryStudentGrades].[CourseWorkID] AS [CourseWorkID], 
+    [qryStudentGrades].[ModuleName] AS [ModuleName], 
+    [qryStudentGrades].[ModuleShortName] AS [ModuleShortName], 
+    [qryStudentGrades].[CourseWorkTitle] AS [CourseWorkTitle], 
+    [qryStudentGrades].[Mark] AS [Mark]
+    FROM [dbo].[qryStudentGrades] AS [qryStudentGrades]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

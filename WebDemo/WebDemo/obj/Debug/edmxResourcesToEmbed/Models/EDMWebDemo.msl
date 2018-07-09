@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="leonardc_WebDemoModelStoreContainer" CdmEntityContainer="leonardc_WebDemoEntities1">
+    <EntitySetMapping Name="tblStudents">
+      <EntityTypeMapping TypeName="leonardc_WebDemoModel.tblStudent">
+        <MappingFragment StoreEntitySet="tblStudents">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EnrollmentDate" ColumnName="EnrollmentDate" />
+          <ScalarProperty Name="RowGuid" ColumnName="RowGuid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCourses">
+      <EntityTypeMapping TypeName="leonardc_WebDemoModel.tblCours">
+        <MappingFragment StoreEntitySet="tblCourses">
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblModules">
+      <EntityTypeMapping TypeName="leonardc_WebDemoModel.tblModule">
+        <MappingFragment StoreEntitySet="tblModules">
+          <ScalarProperty Name="ModuleShortName" ColumnName="ModuleShortName" />
+          <ScalarProperty Name="ModuleDistinctionGrade" ColumnName="ModuleDistinctionGrade" />
+          <ScalarProperty Name="ModuleMeritGrade" ColumnName="ModuleMeritGrade" />
+          <ScalarProperty Name="ModulePassGrade" ColumnName="ModulePassGrade" />
+          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qryStudentGrades">
+      <EntityTypeMapping TypeName="leonardc_WebDemoModel.qryStudentGrade">
+        <MappingFragment StoreEntitySet="qryStudentGrades">
+          <ScalarProperty Name="CourseWorkTitle" ColumnName="CourseWorkTitle" />
+          <ScalarProperty Name="CourseWorkID" ColumnName="CourseWorkID" />
+          <ScalarProperty Name="ModuleShortName" ColumnName="ModuleShortName" />
+          <ScalarProperty Name="Mark" ColumnName="Mark" />
+          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+          <ScalarProperty Name="DateAchieved" ColumnName="DateAchieved" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="Row" ColumnName="Row" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCourseWorks">
+      <EntityTypeMapping TypeName="leonardc_WebDemoModel.tblCourseWork">
+        <MappingFragment StoreEntitySet="tblCourseWork">
+          <ScalarProperty Name="HandInDate" ColumnName="HandInDate" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+          <ScalarProperty Name="CourseWorkID" ColumnName="CourseWorkID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qryLatestStudentGrades">
+      <EntityTypeMapping TypeName="leonardc_WebDemoModel.qryLatestStudentGrade">
+        <MappingFragment StoreEntitySet="qryLatestStudentGrades">
+          <ScalarProperty Name="Mark" ColumnName="Mark" />
+          <ScalarProperty Name="CourseWorkTitle" ColumnName="CourseWorkTitle" />
+          <ScalarProperty Name="ModuleShortName" ColumnName="ModuleShortName" />
+          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+          <ScalarProperty Name="CourseWorkID" ColumnName="CourseWorkID" />
+          <ScalarProperty Name="DateAchieved" ColumnName="DateAchieved" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="Row" ColumnName="Row" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

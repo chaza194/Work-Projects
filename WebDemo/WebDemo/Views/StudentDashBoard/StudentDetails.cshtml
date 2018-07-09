@@ -1,0 +1,43 @@
+﻿@model WebDemo.Models.StudentModel
+@{
+	ViewBag.Title = "Student Details";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("StudentDetails", "StudentDashBoard", FormMethod.Post))
+{
+	<main class="admin__main">
+		<h2>@Html.LabelFor(x => x.StudentInfo.FirstName, Model.StudentInfo.FirstName + " " + Model.StudentInfo.LastName + " Details ", new { style = "color: white" })</h2>
+		<div class="dashboard">
+			<div class="dashboard__item dashboard__item--full">
+				<div class="card">
+					<h2>Course Details</h2>
+
+					Course ID : @Html.LabelFor(x => x.StudentInfo.CourseID, Model.StudentInfo.CourseID.ToString())
+					<br />
+					Course Name : @Html.LabelFor(x => x.CourseInfo.CourseName, Model.CourseInfo.CourseName.ToString())
+					<br />
+					Enrolment Date : @Html.LabelFor(x => x.StudentInfo.EnrollmentDate, Model.StudentInfo.EnrollmentDate.ToString("dd/MM/yyyy"))
+
+					<h2>Account Details</h2>
+					Email : @Html.LabelFor(x => x.StudentInfo.Email, Model.StudentInfo.Email.ToString())
+					<br />
+					Username : @Html.LabelFor(x => x.StudentInfo.UserName, Model.StudentInfo.UserName.ToString())
+					<br />
+					Password : @Html.EditorFor(x => x.StudentInfo.Password)
+
+					<h2>Student Info</h2>
+					FirstName : @Html.LabelFor(x => x.StudentInfo.FirstName, Model.StudentInfo.FirstName.ToString())
+					<br />
+					LastName : @Html.LabelFor(x => x.StudentInfo.LastName, Model.StudentInfo.LastName.ToString())
+					<br />
+					Gender : @Html.LabelFor(x => x.StudentInfo.Gender, Model.StudentInfo.Gender.ToString())
+				</div>
+			</div>
+		</div>
+        <div class="submit-container clearfix" style="margin-top: 2rem;">
+            <div id="submit" role="button" type="button" class="btn btn-irenic float-right" tabindex="0">
+                <input type="submit" value="Save" class="submit" />
+            </div>
+        </div>
+</main>
+}

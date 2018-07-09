@@ -1,0 +1,73 @@
+﻿@model WebDemo.Models.StudentModel
+@{
+	ViewBag.Title = "Student Dashboard";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<script src="~/Scripts/Dashboard.js"></script>
+
+<script id="DOM DATA">
+    $(document).ready(function () {
+		var myModel = @Html.Raw(Json.Encode(Model));
+		LoadCharts(myModel);
+    });
+</script>
+<main class="admin__main">
+	<h2>@Html.LabelFor(x => x.StudentInfo.FirstName, Model.StudentInfo.FirstName + " " +Model.StudentInfo.LastName + " Grades ", new { style = "color : white;" })</h2>
+    <div class="dashboard">
+        <div class="dashboard__item">
+            <div class="card">
+                <strong>Latest Grade : @Html.LabelFor(x => x.StudentGrades.FirstOrDefault().Grade, Model.StudentGrades.FirstOrDefault().Grade.ToString() + "/100 (" + Model.StudentGrades.FirstOrDefault().ModuleName + ")") </strong>
+            </div>
+        </div>
+        <div class="dashboard__item">
+            <div class="card">
+                <strong>Highest Grade : @Html.LabelFor(x => x.StudentGrades.OrderByDescending(y => y.Grade).FirstOrDefault().Grade, Model.StudentGrades.OrderByDescending(y => y.Grade).FirstOrDefault().Grade.ToString() + "/100 (" + Model.StudentGrades.OrderByDescending(y => y.Grade).FirstOrDefault().ModuleName + ")") </strong>
+            </div>
+        </div>
+        <div class="dashboard__item dashboard__item--full">
+            <div class="card">
+                <strong>Latest Grades</strong>
+                <div class="chart-container">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <h3 style="font-weight: bold; color : white">Module Break Down</h3>
+        @foreach (var i in Model.StudentModules)
+        {
+        <div class="dashboard__item dashboard__item--full">
+			<div class="card">
+				<strong>@i.ModuleName.ToString() (@i.ModuleShortName.ToString())</strong>
+				<div>
+					<div class="chart-container">
+						<canvas id="@i.ModuleShortName"></canvas>
+					</div>
+				</div>
+				<strong>Next Course Work Due Date : </strong>
+				<br />
+				@Model.ModuleCourseWork.Where(x => x.HandInDate > @Model.CurrentDateTime && x.ModuleID == i.ModuleID).OrderBy(y => y.HandInDate).FirstOrDefault().Title -
+				@Model.ModuleCourseWork.Where(x => x.HandInDate > @Model.CurrentDateTime && x.ModuleID == i.ModuleID).OrderBy(y => y.HandInDate).FirstOrDefault().HandInDate.ToString("dd/MM/yyyy")
+				<br />
+				<strong>Over All Module Mark : </strong>
+				<br />
+				@Model.StudentGrades.Where(x => x.ModuleID == i.ModuleID).Average(x => x.Grade ?? 0)
+
+			</div>
+        </div>
+        }
+        @*<div class="dashboard__item dashboard__item--col">
+            <div class="card">A</div>
+        </div>
+        <div class="dashboard__item dashboard__item--col">
+            <div class="card">B</div>
+        </div>
+        <div class="dashboard__item dashboard__item--col">
+            <div class="card">C</div>
+        </div>
+        <div class="dashboard__item dashboard__item--col">
+            <div class="card">D</div>
+        </div>*@
+    </div>
+</main>
+
